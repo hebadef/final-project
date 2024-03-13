@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" junit="true" name="Failed suite [Surefire suite]" verbose="0">
+  <test junit="true" name="Surefire test(failed)">
+    <classes>
+      <class name="Selleniun_start_projects.Selleniun_start_projects.TriangleSelleniumTest">
+        <methods>
+          <include name="Test5"/>
+          <include name="Test6"/>
+          <include name="Test1"/>
+          <include name="Test2"/>
+          <include name="Test3"/>
+          <include name="Test4"/>
+        </methods>
+      </class> <!-- Selleniun_start_projects.Selleniun_start_projects.TriangleSelleniumTest -->
+      <class name="Selleniun_start_projects.Selleniun_start_projects.PasswordSelleniumTest">
+        <methods>
+          <include name="Test1"/>
+          <include name="Test4"/>
+          <include name="Test5"/>
+          <include name="Test2"/>
+          <include name="Test3"/>
+          <include name="Test6"/>
+        </methods>
+      </class> <!-- Selleniun_start_projects.Selleniun_start_projects.PasswordSelleniumTest -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->
