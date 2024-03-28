@@ -32,13 +32,14 @@ public class TriangleSelleniumTest {
 	 
 	 @Test
 		public void NotATriangle_1() {
-			browser.findElement(By.name("side1")).sendKeys("3");
+			browser.findElement(By.name("side1")).sendKeys("1");
 			browser.findElement(By.name("side2")).sendKeys("2");
-			browser.findElement(By.name("side3")).sendKeys("1");
+			browser.findElement(By.name("side3")).sendKeys("3");
 			browser.findElement(By.id("identify-triangle-action")).click();
 			String Expected = "Error: Not a Triangle";
 			String result = browser.findElement(By.id("triangle-type")).toString();	
 			assertNotEquals(result,Expected);
+			browser.close();
 		}
 
 	 @Test
@@ -50,6 +51,7 @@ public class TriangleSelleniumTest {
 			String Expected = "Scalene";
 			String result = browser.findElement(By.id("triangle-type")).toString();	
 			assertNotEquals(result,Expected);
+			browser.close();
 		}
 		 
 	 @Test
@@ -61,6 +63,7 @@ public class TriangleSelleniumTest {
 			String Expected = "Isosceles";
 			String result = browser.findElement(By.id("triangle-type")).toString();	
 			assertNotEquals(result,Expected);
+			browser.close();
 		}
 	
 	 @Test
@@ -72,6 +75,7 @@ public class TriangleSelleniumTest {
 			String Expected = "Isosceles";
 			String result = browser.findElement(By.id("triangle-type")).toString();	
 			assertNotEquals(result,Expected);
+			browser.close();
 		}
 	 
 	 
@@ -84,6 +88,7 @@ public class TriangleSelleniumTest {
 			String Expected = "Isosceles";
 			String result = browser.findElement(By.id("triangle-type")).toString();	
 			assertNotEquals(result,Expected);
+			browser.close();
 		}
 	  
 	 @Test
@@ -95,6 +100,7 @@ public class TriangleSelleniumTest {
 			String result = browser.findElement(By.id("triangle-type")).toString();	
 			String Expected = "Equilateral";
 			assertNotEquals(Expected,result);
+			browser.close();
 		} 
 
 	 @Test
@@ -106,6 +112,7 @@ public class TriangleSelleniumTest {
 			String result = browser.findElement(By.id("triangle-type")).toString();	
 			String Expected = "Error: Not a Triangle";
 			assertNotEquals(Expected,result);
+			browser.close();
 		}
 	 	
 	 @Test
@@ -117,6 +124,7 @@ public class TriangleSelleniumTest {
 			String result = browser.findElement(By.id("triangle-type")).toString();	
 			String Expected = "Error: Not a Triangle";
 			assertNotEquals(Expected,result);
+			browser.close();
 		}
 	 
 	 @Test
@@ -128,10 +136,11 @@ public class TriangleSelleniumTest {
 			String result = browser.findElement(By.id("triangle-type")).toString();	
 			String Expected = "Error: Not a Triangle";
 			assertNotEquals(Expected,result);
+			browser.close();
 		}
 	 
 	 
 	 
-	 
+
 	 
 }

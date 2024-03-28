@@ -36,7 +36,10 @@ public class PageSelleniumTest {
 		      browser.get(url);
 	  }
 	 
-	// Firstname too short 
+	/*
+	 * First name Error
+	 * First name too short 
+	 */
 	@Test
 	public void Tests1() {
 			WebElement textBox = browser.findElement(By.id("firstname"));
@@ -53,15 +56,19 @@ public class PageSelleniumTest {
 			browser.findElement(By.cssSelector("input[type='submit']")).click();
 			String newPage = browser.getCurrentUrl();
 			assertNotEquals(currentPage, newPage);
+			browser.close();
    }
 	
-	 // Surname provided is too short
+	 /*
+	  * Input not passed
+	  * Surname provided is too short 
+	  */
 	@Test
 	public void Tests2() {
 			WebElement textBox = browser.findElement(By.id("firstname"));
-			textBox.sendKeys("Nadin");
+			textBox.sendKeys("Nadine");
 			textBox = browser.findElement(By.id("surname"));
-			textBox.sendKeys("Kang");
+			textBox.sendKeys("Kanj");
 			textBox = browser.findElement(By.id("age"));
 			textBox.sendKeys("19");
 			Select drpCountry = new Select(browser.findElement(By.name("country")));
@@ -70,9 +77,12 @@ public class PageSelleniumTest {
 			browser.findElement(By.cssSelector("input[type='submit']")).click();
 			String newPage = browser.getCurrentUrl();
 			assertEquals(currentPage, newPage);
+			browser.close();
    }
 	
-	 //Input passed validation
+	 /*
+	  * Input passed validation 
+	  */
 	@Test
 	public void Tests3() {
 			WebElement textBox = browser.findElement(By.id("firstname"));
@@ -87,9 +97,12 @@ public class PageSelleniumTest {
 			browser.findElement(By.cssSelector("input[type='submit']")).click();
 			String newPage = browser.getCurrentUrl();
 			assertNotEquals(currentPage, newPage);
+			browser.close();
    }
 	
-	 //Input passed validation
+	 /*
+	  * Input passed validation
+	  */
 	@Test
 	public void Tests4() {
 			WebElement textBox = browser.findElement(By.id("firstname"));
@@ -106,9 +119,13 @@ public class PageSelleniumTest {
 			browser.findElement(By.cssSelector("input[type='submit']")).click();
 			String newPage = browser.getCurrentUrl();
 			assertNotEquals(currentPage, newPage);
+			browser.close();
    }
   
-	//Input passed validation through even though what is written doesn't make sense!
+	/*
+	 * Input passed validation
+	 * what is written doesn't make sense!
+	 */
 	@Test
 	public void Tests5() {
 			WebElement textBox = browser.findElement(By.id("firstname"));
@@ -125,6 +142,95 @@ public class PageSelleniumTest {
 			browser.findElement(By.cssSelector("input[type='submit']")).click();
 			String newPage = browser.getCurrentUrl();
 			assertNotEquals(currentPage, newPage);
+			browser.close();
+   }
+	/*
+	 * Input passed validation
+	 * first name and last name in Hebrew
+	 */
+	@Test
+	public void Tests6() {
+			WebElement textBox = browser.findElement(By.id("firstname"));
+			textBox.sendKeys("היבה");
+			textBox = browser.findElement(By.id("surname"));
+			textBox.sendKeys("דפראויייייי");
+			textBox = browser.findElement(By.id("age"));
+			textBox.sendKeys("20");
+			Select drpCountry = new Select(browser.findElement(By.name("country")));
+			drpCountry.selectByVisibleText("Egypt");
+			textBox = browser.findElement(By.id("notes"));
+			textBox.sendKeys(":)");
+			String currentPage=browser.getCurrentUrl();
+			browser.findElement(By.cssSelector("input[type='submit']")).click();
+			String newPage = browser.getCurrentUrl();
+			assertNotEquals(currentPage, newPage);
+			browser.close();
+   }
+	/*
+	 * Input passed validation
+	 * first name and last name in Arabic
+	 */
+	@Test
+	public void Tests7() {
+			WebElement textBox = browser.findElement(By.id("firstname"));
+			textBox.sendKeys("نادين");
+			textBox = browser.findElement(By.id("surname"));
+			textBox.sendKeys("كنججججججججج");
+			textBox = browser.findElement(By.id("age"));
+			textBox.sendKeys("30");
+			Select drpCountry = new Select(browser.findElement(By.name("country")));
+			drpCountry.selectByVisibleText("Turkey");
+			textBox = browser.findElement(By.id("notes"));
+			textBox.sendKeys(":)");
+			String currentPage=browser.getCurrentUrl();
+			browser.findElement(By.cssSelector("input[type='submit']")).click();
+			String newPage = browser.getCurrentUrl();
+			assertNotEquals(currentPage, newPage);
+			browser.close();
+   }
+	/*
+	 * Input passed validation
+	 * first name with symbol
+	 */
+	@Test
+	public void Tests8() {
+			WebElement textBox = browser.findElement(By.id("firstname"));
+			textBox.sendKeys("heba$");
+			textBox = browser.findElement(By.id("surname"));
+			textBox.sendKeys("Defrawiiiiii");
+			textBox = browser.findElement(By.id("age"));
+			textBox.sendKeys("70");
+			Select drpCountry = new Select(browser.findElement(By.name("country")));
+			drpCountry.selectByVisibleText("United States of America");
+			textBox = browser.findElement(By.id("notes"));
+			textBox.sendKeys(":)");
+			String currentPage=browser.getCurrentUrl();
+			browser.findElement(By.cssSelector("input[type='submit']")).click();
+			String newPage = browser.getCurrentUrl();
+			assertNotEquals(currentPage, newPage);
+			browser.close();
+   }
+	/*
+	 * Input not passed 
+	 * age more than 80
+	 */
+	@Test
+	public void Tests9() {
+			WebElement textBox = browser.findElement(By.id("firstname"));
+			textBox.sendKeys("Heba");
+			textBox = browser.findElement(By.id("surname"));
+			textBox.sendKeys("Defrawiiiiii");
+			textBox = browser.findElement(By.id("age"));
+			textBox.sendKeys("85");
+			Select drpCountry = new Select(browser.findElement(By.name("country")));
+			drpCountry.selectByVisibleText("United States of America");
+			textBox = browser.findElement(By.id("notes"));
+			textBox.sendKeys(":)");
+			String currentPage=browser.getCurrentUrl();
+			browser.findElement(By.cssSelector("input[type='submit']")).click();
+			String newPage = browser.getCurrentUrl();
+			assertEquals(currentPage, newPage);
+			browser.close();
    }
 
 }

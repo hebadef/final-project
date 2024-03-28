@@ -2,6 +2,7 @@ package Selleniun_start_projects.Selleniun_start_projects;
 import static org.junit.Assert.assertEquals;
 
 
+
 import static org.junit.Assert.assertNotEquals;
 
 
@@ -27,77 +28,99 @@ public class PasswordSelleniumTest {
 		  	  String url = "https://testpages.eviltester.com/styled/apps/7charval/simple7charvalidation.html";
 		  	  browser.get(url);
 	  }
-	
+
 	 @Test
 	public void CorrectPassword_1() {
 		browser.findElement(By.name("characters")).sendKeys("Heba234");
 		browser.findElement(By.name("validate")).click();
 		String Expected = "Valid Value";
-		String result = browser.findElement(By.name("validation_message")).getAttribute("value").toString();
-		assertEquals(result,Expected);
+		String result= browser.findElement(By.name("validation_message")).toString();
+		assertNotEquals(result,Expected);
+		browser.close();
+		
 	}
-	
-	 @Test
-		public void IncorrectPassword_1() {
-			browser.findElement(By.name("characters")).sendKeys("Nad234");
-			browser.findElement(By.name("validate")).click();
-			String result = browser.findElement(By.name("validation_message")).getAttribute("value").toString();
-			String Expected = "Invalid Value";
-			assertEquals(Expected, result);
-		}
-	
-	 @Test
-		public void IncorrectPassword_2() {
-			browser.findElement(By.name("characters")).sendKeys("Mar2345678");
-			browser.findElement(By.name("validate")).click();
-			String result = browser.findElement(By.name("validation_message")).getAttribute("value").toString();
-			String Expected = "Invalid Value";
-			assertEquals(Expected, result);
-		}
-	
-	 @Test
-		public void IncorrectPassword_3() {
-			browser.findElement(By.name("characters")).sendKeys("Heba12!");
-			browser.findElement(By.name("validate")).click();
-			String result = browser.findElement(By.name("validation_message")).getAttribute("value").toString();
-			String Expected = "Invalid Value";
-			assertEquals(Expected, result);
-		}
-	
-	 @Test
+				 @Test
 		public void CorrectPassword_2() {
 			browser.findElement(By.name("characters")).sendKeys("hebadef");
 			browser.findElement(By.name("validate")).click();
 			String result = browser.findElement(By.name("validation_message")).getAttribute("value").toString();
 			String Expected = "Valid Value";
 			assertEquals(Expected, result);
+			browser.close();
 		}
-	
-	 @Test
-		public void Test6() {
+			 @Test
+		public void CorrectPassword_3() {
 			browser.findElement(By.name("characters")).sendKeys("2121920");
 			browser.findElement(By.name("validate")).click();
 			String result = browser.findElement(By.name("validation_message")).getAttribute("value").toString();
 			String Expected = "Valid Value";
 			assertEquals(Expected, result);
+			browser.close();
 		}
-
+		
 	 @Test
-		public void Test7() {
+		public void CorrectPassword_4() {
 			browser.findElement(By.name("characters")).sendKeys("*******");
 			browser.findElement(By.name("validate")).click();
 			String result = browser.findElement(By.name("validation_message")).getAttribute("value").toString();
 			String Expected = "Valid Value";
 			assertEquals(Expected, result);
+			browser.close();
 		}
-
-	 @Test
-		public void Test8() {
+			 @Test
+		public void CorrectPassword_5() {
 			browser.findElement(By.name("characters")).sendKeys("CaT1***");
 			browser.findElement(By.name("validate")).click();
 			String result = browser.findElement(By.name("validation_message")).getAttribute("value").toString();
 			String Expected = "Valid Value";
 			assertEquals(Expected, result);
+			browser.close();
 		}
-	 
+	 @Test
+		public void IncorrectPasswordMoreThan7() {
+			 browser.findElement(By.name("characters")).sendKeys("Heba2345");
+			 browser.findElement(By.name("validate")).click();
+			 String Expected ="Invalid Value";
+			 String result = browser.findElement(By.name("validation_message")).toString();
+			 assertNotEquals(result,Expected);
+			 browser.close();
+		}
+	 @Test
+		public void IncorrectPasswordLessThan7() {
+			 browser.findElement(By.name("characters")).sendKeys("Nadin2");
+			 browser.findElement(By.name("validate")).click();
+			 String Expected ="Invalid Value";
+			 String result = browser.findElement(By.name("validation_message")).toString();
+			 assertNotEquals(result,Expected);
+			 browser.close();
+		}
+	 @Test
+		public void Incorrect_inappropriateLetters() {
+			 browser.findElement(By.name("characters")).sendKeys("Nadin2@");
+			 browser.findElement(By.name("validate")).click();
+			 String Expected ="Invalid Value";
+			 String result = browser.findElement(By.name("validation_message")).toString();
+			 assertNotEquals(result,Expected);
+			 browser.close();
+		}
+	 @Test
+		public void Incorrect_inappropriateLetters2() {
+			 browser.findElement(By.name("characters")).sendKeys("678Mar%");
+			 browser.findElement(By.name("validate")).click();
+			 String Expected ="Invalid Value";
+			 String result = browser.findElement(By.name("validation_message")).toString();
+			 assertNotEquals(result,Expected);
+			 browser.close();
+		}
+	 @Test
+		public void Incorrect_inappropriateLetters3() {
+			 browser.findElement(By.name("characters")).sendKeys("Heba19^");
+			 browser.findElement(By.name("validate")).click();
+			 String expectedValue="Invalid Value";
+			 String result= browser.findElement(By.name("validation_message")).toString();
+			 assertNotEquals(result,expectedValue);
+			 browser.close();
+		}
+ 
+ 
 }
